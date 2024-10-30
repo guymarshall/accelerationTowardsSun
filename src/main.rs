@@ -29,8 +29,8 @@ fn main() {
 
     let mut time: i32 = 0;
     while planet.distance_from_sun_m > 0.0 {
-        println!(
-            "Time: {}s,\tVelocity: {:.0}ms^-1,\tDistance from Sun: {:.0}m",
+        print!(
+            "\rTime: {}s,\tVelocity: {:.0}ms^-1,\tDistance from Sun: {:.0}m",
             time, planet.velocity, planet.distance_from_sun_m
         );
         time += 1;
@@ -39,4 +39,6 @@ fn main() {
         planet.calculate_new_velocity();
         planet.calculate_new_distance();
     }
+
+    println!();
 }
