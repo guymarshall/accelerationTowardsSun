@@ -2,17 +2,23 @@
 
 use crate::{G, MASS_OF_SUN};
 
-pub struct Planet {
-    pub mass_kg: f64,
-    pub distance_from_sun_m: f64,
-    pub velocity: f64,
-    pub gravitational_force_towards_sun: f64,
-    pub acceleration: f64
+pub(crate) struct Planet {
+    pub(crate) mass_kg: f64,
+    pub(crate) distance_from_sun_m: f64,
+    pub(crate) velocity: f64,
+    pub(crate) gravitational_force_towards_sun: f64,
+    pub(crate) acceleration: f64,
 }
 
 impl Planet {
     pub(crate) const fn new(mass_kg: f64, distance_from_sun_m: f64) -> Planet {
-        Planet {mass_kg, distance_from_sun_m, velocity: 0.0, gravitational_force_towards_sun: 0.0, acceleration: 0.0 }
+        Planet {
+            mass_kg,
+            distance_from_sun_m,
+            velocity: 0.0,
+            gravitational_force_towards_sun: 0.0,
+            acceleration: 0.0,
+        }
     }
 
     pub(crate) fn print_planets() {
@@ -20,7 +26,9 @@ impl Planet {
     }
 
     pub(crate) fn calculate_new_gravitational_force_towards_sun(&mut self) {
-        self.gravitational_force_towards_sun = G * ((MASS_OF_SUN * self.mass_kg) / (self.distance_from_sun_m * self.distance_from_sun_m));
+        self.gravitational_force_towards_sun = G
+            * ((MASS_OF_SUN * self.mass_kg)
+                / (self.distance_from_sun_m * self.distance_from_sun_m));
     }
 
     pub(crate) fn calculate_new_acceleration(&mut self) {
