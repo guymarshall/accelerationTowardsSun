@@ -1,5 +1,3 @@
-#![forbid(unsafe_code)]
-
 use crate::{G, MASS_OF_SUN};
 
 pub(crate) struct Planet {

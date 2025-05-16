@@ -1,5 +1,3 @@
-#![forbid(unsafe_code)]
-
 use crate::planet::Planet;
 
 mod planet;
