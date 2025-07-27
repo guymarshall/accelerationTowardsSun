@@ -7,42 +7,54 @@ public class Planet {
     public double acceleration;
 
     public Planet(int userInput) {
-        this.name = switch (userInput) {
-            case 1 -> "Mercury";
-            case 2 -> "Venus";
-            case 3 -> "Earth";
-            case 4 -> "Mars";
-            case 5 -> "Jupiter";
-            case 6 -> "Saturn";
-            case 7 -> "Uranus";
-            case 8 -> "Neptune";
-            case 9 -> "Pluto";
+        switch (userInput) {
+            case 1 -> {
+                this.name = "Mercury";
+                this.massKg = 0.33e24;
+                this.distanceFromSunMetres = 57.0e9;
+            }
+            case 2 -> {
+                this.name = "Venus";
+                this.massKg = 4.87e24;
+                this.distanceFromSunMetres = 108.2e9;
+            }
+            case 3 -> {
+                this.name = "Earth";
+                this.massKg = 5.97e24;
+                this.distanceFromSunMetres = 149.6e9;
+            }
+            case 4 -> {
+                this.name = "Mars";
+                this.massKg = 0.642e24;
+                this.distanceFromSunMetres = 228.0e9;
+            }
+            case 5 -> {
+                this.name = "Jupiter";
+                this.massKg = 1.898e24;
+                this.distanceFromSunMetres = 778.5e9;
+            }
+            case 6 -> {
+                this.name = "Saturn";
+                this.massKg = 568.0e24;
+                this.distanceFromSunMetres = 1432.0e9;
+            }
+            case 7 -> {
+                this.name = "Uranus";
+                this.massKg = 86.8e24;
+                this.distanceFromSunMetres = 2867.0e9;
+            }
+            case 8 -> {
+                this.name = "Neptune";
+                this.massKg = 102.0e24;
+                this.distanceFromSunMetres = 4515.0e9;
+            }
+            case 9 -> {
+                this.name = "Pluto";
+                this.massKg = 0.013e24;
+                this.distanceFromSunMetres = 5906.4e9;
+            }
             default -> throw new IllegalArgumentException("Unknown planet index: " + userInput);
-        };
-        this.massKg = switch (userInput) {
-            case 1 -> 0.33e24;     // Mercury
-            case 2 -> 4.87e24;    // Venus
-            case 3 -> 5.97e24;    // Earth
-            case 4 -> 0.642e24;   // Mars
-            case 5 -> 1.898e24;   // Jupiter
-            case 6 -> 568.0e24;  // Saturn
-            case 7 -> 86.8e24;   // Uranus
-            case 8 -> 102.0e24;  // Neptune
-            case 9 -> 0.013e24;  // Pluto
-            default -> throw new IllegalArgumentException("Unknown planet index: " + userInput);
-        };
-        this.distanceFromSunMetres = switch (userInput) {
-            case 1 -> 57.0e9;     // Mercury
-            case 2 -> 108.2e9;    // Venus
-            case 3 -> 149.6e9;    // Earth
-            case 4 -> 228.0e9;   // Mars
-            case 5 -> 778.5e9;   // Jupiter
-            case 6 -> 1432.0e9;  // Saturn
-            case 7 -> 2867.0e9;   // Uranus
-            case 8 -> 4515.0e9;  // Neptune
-            case 9 -> 5906.4e9;  // Pluto
-            default -> throw new IllegalArgumentException("Unknown planet index: " + userInput);
-        };
+        }
 
         this.velocity = 0.0;
         this.gravitationalForceTowardsSun = 0.0;
